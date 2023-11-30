@@ -9,7 +9,7 @@ software_db = {
     'ivsftpd': {
         'software_name' : 'vsftpd',
         'software_version': '2.3.4',
-        'vulnerabilidades': ['CVE-2011-0762', 'CVE-2015-1419'],
+        'vulnerabilidades': ['CVE-2011-0762']['CVE-2015-1419'],
         'mitigacion': "Actualizar vsftpd:\n Asegúrate de estar utilizando la última versión estable de vsftpd, ya que las vulnerabilidades a menudo se corrigen en las actualizaciones."
     },  
     'iapache': {
@@ -30,7 +30,7 @@ software_db = {
 def verificar_vulnerabilidad(name, version):
         for key, value in software_db.items():
          if value['software_name'] == name and value['software_version'] == version:
-             return value['mitigacion']
+             return value['mitigacion'], value['vulnerabilidades']
         return "No se encontró información para ese software o versión en la base de datos."
   
 
@@ -57,16 +57,14 @@ def main_menu():
             software_data['nombre'] = name
             software_data['version'] = version
             print(software_data)
-            time.sleep(5)
+            time.sleep(2)
         elif main_menu_entry_index == 1:
             print("Finding information about", (name, version), "...")
             time.sleep(3)
             resultado = verificar_vulnerabilidad(name, version)
-            print((resultado))
-            time.sleep(10)
+            print("\033[1mSe encontraron las siguientes vulnerabilidades:\033[0m", resultado[1], "\n\033[1mMitigar vulnerabilidades:\n\033[0m", resultado[0])
+            input("Press enter to continue...")
         elif main_menu_entry_index == 2:
-            print(software_data)
-            time.sleep(5)
             return
 
 def main():
