@@ -1,32 +1,33 @@
-import os
-import time
-import pyfiglet
-from simple_term_menu import TerminalMenu
+import os  # Operating system interface for clearing the terminal
+import time  # Time-related functions for introducing delays
+import pyfiglet  # ASCII art text generator for creating stylized banners
+from simple_term_menu import TerminalMenu  # Terminal-based menu library for user interaction
 
-
-# base de datos de software con vulnerabilidades
+# We declare the variable outside the loops to use it throughout the program
+software_data = {}
+# Database of software with vulnerabilities
 software_db = {
     'ivsftpd': {
         'software_name' : 'vsftpd',
         'software_version': '2.3.4',
-        'vulnerabilidades': ['CVE-2011-0762']['CVE-2015-1419'],
-        'mitigacion': "Actualizar vsftpd:\n Asegúrate de estar utilizando la última versión estable de vsftpd, ya que las vulnerabilidades a menudo se corrigen en las actualizaciones."
+        'vulnerabilidades': ['CVE-2011-0762', 'CVE-2015-1419'],
+        'mitigacion': "Update vsftpd:\n Ensure you are using the latest stable version of vsftpd, as vulnerabilities are often addressed in updates."
     },  
     'iapache': {
         'software_name' : 'apache',
         'software_version': '2.4.29',
         'vulnerabilidades': ['CVE-2019-0211', 'CVE-2017-7679'],
-        'mitigacion': "Actualizar Apache:\n Mantén Apache actualizado para beneficiarte de las correcciones de seguridad.\n Seguridad en Configuración:\n Configura Apache de manera segura, deshabilita módulos no utilizados y limita el acceso a recursos sensibles.\n Firewalls y WAFs:\n Utiliza firewalls y Web Application Firewalls (WAFs) para filtrar y monitorizar el tráfico entrante."
+        'mitigacion': "Update Apache:\n Keep Apache up to date to benefit from security fixes.\n Configuration Security:\n Configure Apache securely by disabling unused modules and limiting access to sensitive resources.\n Firewalls and WAFs:\n Use firewalls and Web Application Firewalls (WAFs) to filter and monitor incoming traffic."
     },
     'issh': {
         'software_name' : 'ssh',
         'software_version': '7.6.1',
         'vulnerabilidades': ['CVE-2018-15473', 'CVE-2016-0777'],
-        'mitigacion': "Actualizar OpenSSH:\n Mantén la versión de OpenSSH actualizada para corregir vulnerabilidades conocidas.\n Configuración Segura:\n Ajusta la configuración de SSH para limitar accesos, desactivar métodos de autenticación débiles y usar configuraciones criptográficas fuertes.\n Monitorización de Acceso:\n Implementa sistemas de monitoreo para detectar y responder a actividades sospechosas en conexiones SSH."
+        'mitigacion': "Update OpenSSH:\n Keep the OpenSSH version up to date to address known vulnerabilities.\n Secure Configuration:\n Adjust SSH configuration to limit access, disable weak authentication methods, and use strong cryptographic settings.\n Access Monitoring:\n Implement monitoring systems to detect and respond to suspicious activities in SSH connections."
     }
 }
 
-
+# Function to check vulnerabilities based on software name and version
 def verificar_vulnerabilidad(name, version):
         for key, value in software_db.items():
          if value['software_name'] == name and value['software_version'] == version:
@@ -35,7 +36,7 @@ def verificar_vulnerabilidad(name, version):
   
 
 
-    
+# Main menu function    
 def main_menu():
     """
     Function that displays the program's main menu.
@@ -50,23 +51,29 @@ def main_menu():
         options = ["[1] Enter software data ", "[2] Mitigate vulnerability", "[3] Exit"]
         main_menu = TerminalMenu(options)
         main_menu_entry_index = main_menu.show()
+        # Option to enter software data
         if main_menu_entry_index == 0:
-            software_data = {}
             name = input("enter software name: ")
             version = input ("enter software version: ")
             software_data['nombre'] = name
             software_data['version'] = version
             print(software_data)
             time.sleep(2)
+        # Option to mitigate vulnerability
         elif main_menu_entry_index == 1:
-            print("Finding information about", (name, version), "...")
-            time.sleep(3)
-            resultado = verificar_vulnerabilidad(name, version)
-            print("\033[1mSe encontraron las siguientes vulnerabilidades:\033[0m", resultado[1], "\n\033[1mMitigar vulnerabilidades:\n\033[0m", resultado[0])
-            input("Press enter to continue...")
+            if software_data:
+                print("Searching information for", (name, version), "...")
+                time.sleep(3)
+                resultado = verificar_vulnerabilidad(name, version)
+                print("\033[1mThe following vulnerabilities were found:\033[0m", resultado[1], "\n\033[1mMitigate vulnerabilities:\n\033[0m", resultado[0])
+                input("Press enter to continue...")
+            else:
+                print("Please enter software information")
+                time.sleep(3)
+        # Option to exit
         elif main_menu_entry_index == 2:
             return
-
+# Main function
 def main():
     """
     Main function of the program.
