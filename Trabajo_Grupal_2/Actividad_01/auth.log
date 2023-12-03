@@ -1,0 +1,25 @@
+Nov 30 12:00:01 servidor sshd[12300]: Connection from 192.168.1.100 port 22
+Nov 30 12:00:02 servidor sshd[12300]: Failed password for user1 from 192.168.1.100 port 22 ssh2
+Nov 30 12:05:10 servidor sshd[12301]: Connection from 192.168.1.101 port 22
+Nov 30 12:05:11 servidor sshd[12301]: Failed password for user2 from 192.168.1.101 port 22 ssh2
+Nov 30 12:10:20 servidor sshd[12302]: Connection from 192.168.1.102 port 22
+Nov 30 12:10:21 servidor sshd[12302]: Failed password for user3 from 192.168.1.102 port 22 ssh2
+Nov 30 12:15:30 servidor sshd[12303]: Connection from 192.168.1.103 port 22
+Nov 30 12:15:31 servidor sshd[12303]: Failed password for user4 from 192.168.1.103 port 22 ssh2
+Nov 30 12:20:40 servidor sshd[12304]: Connection from 192.168.1.104 port 22
+Nov 30 12:20:41 servidor sshd[12304]: Failed password for admin from 192.168.1.104 port 22 ssh2
+Nov 30 12:25:50 servidor sshd[12305]: Connection from 192.168.1.105 port 22
+Nov 30 12:25:51 servidor sshd[12305]: Failed password for admin from 192.168.1.105 port 22 ssh2
+Nov 30 12:31:00 servidor sshd[12306]: Connection from 192.168.1.106 port 22
+Nov 30 12:31:01 servidor sshd[12306]: Failed password for admin from 192.168.1.106 port 22 ssh2
+Nov 30 12:36:10 servidor sshd[12307]: Connection from 192.168.1.107 port 22
+Nov 30 12:36:11 servidor sshd[12307]: Failed password for admin from 192.168.1.107 port 22 ssh2
+Nov 30 12:41:20 servidor sshd[12308]: Connection from 192.168.1.108 port 22
+Nov 30 12:41:21 servidor sshd[12308]: Failed password for admin from 192.168.1.108 port 22 ssh2
+Nov 30 12:46:30 servidor sshd[12309]: Connection from 192.168.1.109 port 22
+Nov 30 12:46:31 servidor sshd[12309]: Failed password for admin from 192.168.1.109 port 22 ssh2
+Nov 30 12:51:40 servidor sshd[12310]: Connection from 192.168.1.110 port 22
+Nov 30 12:51:41 servidor sshd[12310]: Failed password for admin from 192.168.1.110 port 22 ssh2
+Nov 30 12:56:50 servidor sshd[12311]: Connection from 192.168.1.111 port 22
+Nov 30 12:56:51 servidor sshd[12311]: Failed password for admin from 192.168.1.111 port 22 ssh2
+Nov 30 13:01:00 servidor sshd[12311]: Accepted password for admin from 192.168.1.111 port 22 ssh2
